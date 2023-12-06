@@ -30,8 +30,17 @@ function App() {
 
   ])
 
-  const createTodo = (text, category) =>{
+  const createTodo = (task, category) =>{
+    const newTodo = [...todos,
+      {
+      id : Math.floor(Math.random() * 10000),
+      task,
+      category,
+      isCompleted : false,
+    },
+  ]
 
+  setTodos(newTodo)
   }
 
   return (
@@ -42,7 +51,7 @@ function App() {
       <Todo key={todo.id} todo = {todo} />
      ))}
    </div>
-   <TodoForm></TodoForm>
+   <TodoForm createTodo = {createTodo}></TodoForm>
   </div>
   )
 }

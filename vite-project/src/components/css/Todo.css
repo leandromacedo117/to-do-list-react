@@ -1,0 +1,10 @@
+.content{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.category{
+    font-size: .7rem;
+    margin-left: 10px;
+}
