@@ -3,6 +3,7 @@ const Filter = ({ filter, setFilter }) => {
     <div className="filter">
         <h3>Filtrar:</h3>
         <div className="filter-options">
+            
             <div>
                 <p>Estado:</p>
                 <select value={filter} onChange={(e) => setFilter(e.target.value)}>

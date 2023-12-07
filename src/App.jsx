@@ -81,7 +81,7 @@ function App() {
    <div className='list-todo'>
 
     {/* filtar Array  */}
-
+    {/*  */}
      {todos
      .filter((todo) => filter === "All" ? true //All tasks
      : filter === "Completed" ? todo.isCompleted  //tasks completed
