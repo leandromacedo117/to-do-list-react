@@ -1,7 +1,7 @@
 import React from 'react'
 import "./css/Todo.css"
 
-const Todo = ({todo , removeTodo, completeTodo}) => {
+const todo = ({todo , removeTodo, completeTodo}) => {
   return (
     <div className="todo" style={{textDecoration : todo.isCompleted  ? "line-through" : ""}}>
      <div className="content">
@@ -16,4 +16,4 @@ const Todo = ({todo , removeTodo, completeTodo}) => {
   )
 }
 
-export default Todo
+export default todo
