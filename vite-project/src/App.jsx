@@ -3,6 +3,7 @@ import './App.css'
 import TodoForm from './components/TodoForm'
 import Search from './components/Search.jsx'
 import Todo from './components/todo.jsx'
+import Filter from './components/Filter'
 
 
 function App() {
@@ -10,21 +11,21 @@ function App() {
 
     {
       id: 1,
-      task: "Estuda JavaScript",
+      task: "Estudar JavaScript",
       category: "Estudos",
       isCompleted:false,
     },
 
     {
       id:2,
-      task:"Trabalha como Free",
+      task:"Trabalha com Free",
       category:"Trabalho",
       isCompleted: false,
     },
 
     {
       id: 3,
-      task: "Fazer exercicios fisico",
+      task: "Fazer exercícios físico",
       category: "Pessoal",
       isCompleted:false,
     },
@@ -33,6 +34,11 @@ function App() {
 
   // Search 
   const [search, setSearch] = useState("")
+
+  // Filter
+  const [filter, setFilter] = useState("All")
+  const [AZ, setAZ] = useState("AZ")
+  const [ZA, setZA] = useState("ZA")
 
   // Create Task
   const createTodo = (task, category) =>{
@@ -65,12 +71,22 @@ function App() {
   return (
   <div className='app'>
     <h1>Lista de Tarefas</h1>
+    <div className="content-function">
+    <Search search = {search} setSearch = {setSearch} />
 
-   <Search search = {search} setSearch = {setSearch} />
-  
+    <Filter filter = {filter} setFilter={setFilter}/>
+    </div>
+   
 
    <div className='list-todo'>
-     {todos.filter((todo) => todo.task.toLowerCase().includes(search.toLowerCase())).map((todo) =>(
+
+    {/* filtar Array  */}
+    {/*  */}
+     {todos
+     .filter((todo) => filter === "All" ? true //All tasks
+     : filter === "Completed" ? todo.isCompleted  //tasks completed
+     : !todo.isCompleted) //Incomplete
+     .filter((todo) => todo.task.toLowerCase().includes(search.toLowerCase())).map((todo) =>(
       <Todo
        key={todo.id}
        todo = {todo} 
